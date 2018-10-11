@@ -44,7 +44,7 @@ save_path = "C:/Users/310267647/.keras/datasets/" #change the path
 ## Run the nlp.py file from Anaconda prompt to local server
 (base) C:\>python \NLPBot\nlp.py    #run from your assigned path
 
-## To test the NLP outcome run NLP_API_CALL.html file and ask question.
+## To test the NLP outcome run NLP_API_CALL.html file from any web application server and ask question.
 There are only 3 question available now.
 1. What is task today?
 2. What is task tomorrow?
