@@ -10,19 +10,31 @@ The following packages are needed to be installed:
 
 conda install scipy
 pip install --upgrade sklearn
+
 pip install --upgrade pandas
+
 pip install --upgrade pandas-datareader
+
 pip install --upgrade matplotlib
+
 pip install --upgrade pillow
+
 pip install --upgrade requests
+
 pip install --upgrade h5py
+
 pip install tensorflow==1.2.1
+
 pip install keras==2.0.6
+
 
 ## Confirm the following files are available in assigned path
 babi-tasks-v1-2.tar10.gz
+
 chatbot.h5
+
 vocab.pkl
+
 
 ## Change the file path according to your assigned path in nlp.py file
 path = 'C:/Users/310267647/.keras/datasets/babi-tasks-v1-2.tar10.gz'  #change the path
