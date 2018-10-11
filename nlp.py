@@ -18,6 +18,7 @@ import time
 import flask
 from flask import request
 from flask import render_template_string
+from flask import Flask, jsonify
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -87,11 +88,11 @@ def vectorize_stories(data):
 
 
 try:
-    path = 'C:/Users/310267647/.keras/datasets/babi-tasks-v1-2.tar.gz'
+    path = 'C:/Users/310267647/.keras/datasets/babi-tasks-v1-2.tar10.gz'
 except:
-    print('Error downloading dataset, please download it manually:\n'
-          '$ wget http://www.thespermwhale.com/jaseweston/babi/tasks_1-20_v1-2.tar.gz\n'
-          '$ mv tasks_1-20_v1-2.tar.gz ~/.keras/datasets/babi-tasks-v1-2.tar.gz')
+   # print('Error downloading dataset, please download it manually:\n'
+    #      '$ wget http://www.thespermwhale.com/jaseweston/babi/babi-tasks-v1-2.tar8.gz\n'
+     #     '$ mv tasks_1-20_v1-2.tar.gz ~/.keras/datasets/babi-tasks-v1-2.tar.gz')
     raise
 tar = tarfile.open(path)
 
@@ -146,7 +147,7 @@ score = metrics.accuracy_score(answers_test, pred)
 
 #print("Remember, I only know these words: {}".format(vocab))
 #print()
-story = "Daniel went to the bathroom. Daniel to journeyed to the office.  Mary went to the kitchen."
+story = "Task today is tasktoday. Task for yesterday was taskyesterday.  Task for tomorrow is tasktomorrow."
 
 
 
@@ -162,6 +163,6 @@ def home():
     pred = model.predict([adhoc_train, adhoc_query])
     pred = np.argmax(pred,axis=1)
     answer = "Answer: {}({})".format(vocab[pred[0]-1],pred)
-    return answer 
+    return jsonify({'tasks': answer}) 
 
 app.run()
