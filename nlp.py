@@ -17,10 +17,10 @@ import os
 import time
 import flask
 from flask import request
-from flask import render_template_string
+from flask import render_template_string, render_template
 from flask import Flask, jsonify
 
-app = flask.Flask(__name__)
+app = Flask(__name__, static_url_path='')
 app.config["DEBUG"] = True
 
 def tokenize(sent):
@@ -165,4 +165,9 @@ def home():
     answer = "Answer: {}({})".format(vocab[pred[0]-1],pred)
     return jsonify({'tasks': answer}) 
 
+	
+@app.route('/' , methods=['GET'])
+def render_static():
+    return render_template("NLP_API_CALL.html", title = '')
+    #return render_template('%NLP_API_CALL.html' % page_name)
 app.run()
