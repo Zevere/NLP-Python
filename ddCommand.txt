@@ -1,0 +1,272 @@
+Microsoft Windows [Version 10.0.17134.285]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\ZevereNLP>docker version
+Client:
+ Version:      18.03.1-ce
+ API version:  1.37
+ Go version:   go1.9.5
+ Git commit:   9ee9f40
+ Built:        Thu Apr 26 07:12:48 2018
+ OS/Arch:      windows/amd64
+ Experimental: false
+ Orchestrator: swarm
+
+Server:
+ Engine:
+  Version:      18.03.1-ce
+  API version:  1.37 (minimum version 1.12)
+  Go version:   go1.9.5
+  Git commit:   9ee9f40
+  Built:        Thu Apr 26 07:22:38 2018
+  OS/Arch:      linux/amd64
+  Experimental: false
+
+C:\ZevereNLP>docker build
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | - [flags]
+
+Build an image from a Dockerfile
+
+C:\ZevereNLP>docker build .
+Sending build context to Docker daemon  108.1MB
+Step 1/5 : FROM python:3
+3: Pulling from library/python
+05d1a5232b46: Pull complete
+5cee356eda6b: Pull complete
+89d3385f0fd3: Pull complete
+80ae6b477848: Pull complete
+28bdf9e584cc: Pull complete
+523b203f62bd: Pull complete
+e423ae9d5ac7: Pull complete
+adc78e8180f7: Pull complete
+60c9f1f1e6c6: Pull complete
+Digest: sha256:5caeb1a2119661f053e9d9931c1e745d9b738e2f585ba16d88bc3ffcf4ad727b
+Status: Downloaded newer image for python:3
+ ---> 7a35f2e8feff
+Step 2/5 : COPY . /app/
+ ---> ef30e90887a8
+Step 3/5 : WORKDIR /app/
+Removing intermediate container 7e6dc7417934
+ ---> d35112b6d9f2
+Step 4/5 : RUN pip install -r requirements.txt
+ ---> Running in f6390235a46c
+Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'
+The command '/bin/sh -c pip install -r requirements.txt' returned a non-zero code: 1
+
+C:\ZevereNLP>docker build .
+Sending build context to Docker daemon  108.1MB
+Step 1/5 : FROM python:3
+ ---> 7a35f2e8feff
+Step 2/5 : COPY . /app/
+ ---> b8d2489298f0
+Step 3/5 : WORKDIR /app/
+Removing intermediate container d7b23a4041c4
+ ---> 43195d570f71
+Step 4/5 : RUN pip install -r requirements.txt
+ ---> Running in c386bb7bf47c
+Collecting sklearn (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/1e/7a/dbb3be0ce9bd5c8b7e3d87328e79063f8b263b2b1bfa4774cb1147bfcd3f/sklearn-0.0.tar.gz
+Collecting pandas (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/67/a7/12261a51ac2e7be4c698ca27cbe364ca5f16d64999456ee47ea8c7b44417/pandas-0.23.4-cp37-cp37m-manylinux1_x86_64.whl (8.8MB)
+Collecting pandas-datareader (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/cc/5c/ea5b6dcfd0f55c5fb1e37fb45335ec01cceca199b8a79339137f5ed269e0/pandas_datareader-0.7.0-py2.py3-none-any.whl (111kB)
+Collecting matplotlib (from -r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/1e/92/923b86132669ce39b7b0096a402cc78a5b70f22423f8b59bbd7bb7ff9403/matplotlib-3.0.0-cp37-cp37m-manylinux1_x86_64.whl (12.8MB)
+Collecting pillow (from -r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/62/8c/230204b8e968f6db00c765624f51cfd1ecb6aea57b25ba00b240ee3fb0bd/Pillow-5.3.0-cp37-cp37m-manylinux1_x86_64.whl (2.0MB)
+Collecting requests (from -r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/65/47/7e02164a2a3db50ed6d8a6ab1d6d60b69c4c3fdf57a284257925dfc12bda/requests-2.19.1-py2.py3-none-any.whl (91kB)
+Collecting h5py (from -r requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/4f/3f/724834613239667a92d3b8b6b8fdef1c93d6f57d008cacc46e6b9ebdc486/h5py-2.8.0-cp37-cp37m-manylinux1_x86_64.whl (2.8MB)
+Collecting tensorflow==1.2.1 (from -r requirements.txt (line 8))
+  Could not find a version that satisfies the requirement tensorflow==1.2.1 (from -r requirements.txt (line 8)) (from versions: )
+No matching distribution found for tensorflow==1.2.1 (from -r requirements.txt (line 8))
+The command '/bin/sh -c pip install -r requirements.txt' returned a non-zero code: 1
+
+C:\ZevereNLP>docker build .
+Sending build context to Docker daemon  108.1MB
+Step 1/5 : FROM python:3
+ ---> 7a35f2e8feff
+Step 2/5 : COPY . /app/
+ ---> 909932ed00d6
+Step 3/5 : WORKDIR /app/
+Removing intermediate container 90e51b0c8073
+ ---> b969d31ae844
+Step 4/5 : RUN pip install -r requirements.txt
+ ---> Running in f711bf753a7a
+Collecting sklearn (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/1e/7a/dbb3be0ce9bd5c8b7e3d87328e79063f8b263b2b1bfa4774cb1147bfcd3f/sklearn-0.0.tar.gz
+Collecting pandas (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/67/a7/12261a51ac2e7be4c698ca27cbe364ca5f16d64999456ee47ea8c7b44417/pandas-0.23.4-cp37-cp37m-manylinux1_x86_64.whl (8.8MB)
+Collecting pandas-datareader (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/cc/5c/ea5b6dcfd0f55c5fb1e37fb45335ec01cceca199b8a79339137f5ed269e0/pandas_datareader-0.7.0-py2.py3-none-any.whl (111kB)
+Collecting matplotlib (from -r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/1e/92/923b86132669ce39b7b0096a402cc78a5b70f22423f8b59bbd7bb7ff9403/matplotlib-3.0.0-cp37-cp37m-manylinux1_x86_64.whl (12.8MB)
+Collecting pillow (from -r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/62/8c/230204b8e968f6db00c765624f51cfd1ecb6aea57b25ba00b240ee3fb0bd/Pillow-5.3.0-cp37-cp37m-manylinux1_x86_64.whl (2.0MB)
+Collecting requests (from -r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/65/47/7e02164a2a3db50ed6d8a6ab1d6d60b69c4c3fdf57a284257925dfc12bda/requests-2.19.1-py2.py3-none-any.whl (91kB)
+Collecting h5py (from -r requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/4f/3f/724834613239667a92d3b8b6b8fdef1c93d6f57d008cacc46e6b9ebdc486/h5py-2.8.0-cp37-cp37m-manylinux1_x86_64.whl (2.8MB)
+Collecting tensorflow==1.3.0 (from -r requirements.txt (line 8))
+  Could not find a version that satisfies the requirement tensorflow==1.3.0 (from -r requirements.txt (line 8)) (from versions: )
+No matching distribution found for tensorflow==1.3.0 (from -r requirements.txt (line 8))
+The command '/bin/sh -c pip install -r requirements.txt' returned a non-zero code: 1
+
+C:\ZevereNLP>docker build .
+Sending build context to Docker daemon  108.1MB
+Step 1/5 : FROM python:3
+ ---> 7a35f2e8feff
+Step 2/5 : COPY . /app/
+ ---> 0b02459885b1
+Step 3/5 : WORKDIR /app/
+Removing intermediate container 8b675c3b83b4
+ ---> a985d5a7b143
+Step 4/5 : RUN pip install -r requirements.txt
+ ---> Running in f5c48237eb32
+Collecting sklearn (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/1e/7a/dbb3be0ce9bd5c8b7e3d87328e79063f8b263b2b1bfa4774cb1147bfcd3f/sklearn-0.0.tar.gz
+Collecting pandas (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/67/a7/12261a51ac2e7be4c698ca27cbe364ca5f16d64999456ee47ea8c7b44417/pandas-0.23.4-cp37-cp37m-manylinux1_x86_64.whl (8.8MB)
+Collecting pandas-datareader (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/cc/5c/ea5b6dcfd0f55c5fb1e37fb45335ec01cceca199b8a79339137f5ed269e0/pandas_datareader-0.7.0-py2.py3-none-any.whl (111kB)
+Collecting matplotlib (from -r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/1e/92/923b86132669ce39b7b0096a402cc78a5b70f22423f8b59bbd7bb7ff9403/matplotlib-3.0.0-cp37-cp37m-manylinux1_x86_64.whl (12.8MB)
+Collecting pillow (from -r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/62/8c/230204b8e968f6db00c765624f51cfd1ecb6aea57b25ba00b240ee3fb0bd/Pillow-5.3.0-cp37-cp37m-manylinux1_x86_64.whl (2.0MB)
+Collecting requests (from -r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/65/47/7e02164a2a3db50ed6d8a6ab1d6d60b69c4c3fdf57a284257925dfc12bda/requests-2.19.1-py2.py3-none-any.whl (91kB)
+Collecting h5py (from -r requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/4f/3f/724834613239667a92d3b8b6b8fdef1c93d6f57d008cacc46e6b9ebdc486/h5py-2.8.0-cp37-cp37m-manylinux1_x86_64.whl (2.8MB)
+Collecting tensorflow (from -r requirements.txt (line 8))
+  Could not find a version that satisfies the requirement tensorflow (from -r requirements.txt (line 8)) (from versions: )
+No matching distribution found for tensorflow (from -r requirements.txt (line 8))
+The command '/bin/sh -c pip install -r requirements.txt' returned a non-zero code: 1
+
+C:\ZevereNLP>docker build .
+Sending build context to Docker daemon  108.1MB
+Step 1/5 : FROM python:3
+ ---> 7a35f2e8feff
+Step 2/5 : COPY . /app/
+ ---> 3dca8a3633fb
+Step 3/5 : WORKDIR /app/
+Removing intermediate container ce8859a6e3b4
+ ---> 8b5a11e0f879
+Step 4/5 : RUN pip install -r requirements.txt
+ ---> Running in f7a7d4a6f07c
+Collecting sklearn (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/1e/7a/dbb3be0ce9bd5c8b7e3d87328e79063f8b263b2b1bfa4774cb1147bfcd3f/sklearn-0.0.tar.gz
+Collecting pandas (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/67/a7/12261a51ac2e7be4c698ca27cbe364ca5f16d64999456ee47ea8c7b44417/pandas-0.23.4-cp37-cp37m-manylinux1_x86_64.whl (8.8MB)
+Collecting pandas-datareader (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/cc/5c/ea5b6dcfd0f55c5fb1e37fb45335ec01cceca199b8a79339137f5ed269e0/pandas_datareader-0.7.0-py2.py3-none-any.whl (111kB)
+Collecting matplotlib (from -r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/1e/92/923b86132669ce39b7b0096a402cc78a5b70f22423f8b59bbd7bb7ff9403/matplotlib-3.0.0-cp37-cp37m-manylinux1_x86_64.whl (12.8MB)
+Collecting pillow (from -r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/62/8c/230204b8e968f6db00c765624f51cfd1ecb6aea57b25ba00b240ee3fb0bd/Pillow-5.3.0-cp37-cp37m-manylinux1_x86_64.whl (2.0MB)
+Collecting requests (from -r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/65/47/7e02164a2a3db50ed6d8a6ab1d6d60b69c4c3fdf57a284257925dfc12bda/requests-2.19.1-py2.py3-none-any.whl (91kB)
+Collecting h5py (from -r requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/4f/3f/724834613239667a92d3b8b6b8fdef1c93d6f57d008cacc46e6b9ebdc486/h5py-2.8.0-cp37-cp37m-manylinux1_x86_64.whl (2.8MB)
+Collecting keras (from -r requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/5e/10/aa32dad071ce52b5502266b5c659451cfd6ffcbf14e6c8c4f16c0ff5aaab/Keras-2.2.4-py2.py3-none-any.whl (312kB)
+Collecting tensorflow (from -r requirements.txt (line 9))
+  Could not find a version that satisfies the requirement tensorflow (from -r requirements.txt (line 9)) (from versions: )
+No matching distribution found for tensorflow (from -r requirements.txt (line 9))
+The command '/bin/sh -c pip install -r requirements.txt' returned a non-zero code: 1
+
+C:\ZevereNLP>python
+'python' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\ZevereNLP>docker build .
+Sending build context to Docker daemon  108.1MB
+Step 1/5 : FROM python:3
+ ---> 7a35f2e8feff
+Step 2/5 : COPY . /app/
+ ---> e624f9845749
+Step 3/5 : WORKDIR /app/
+Removing intermediate container c9b7cabc0c36
+ ---> 08f9c276ce53
+Step 4/5 : RUN pip install -r requirements.txt
+ ---> Running in 0df44bcb4b2e
+Collecting sklearn (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/1e/7a/dbb3be0ce9bd5c8b7e3d87328e79063f8b263b2b1bfa4774cb1147bfcd3f/sklearn-0.0.tar.gz
+Collecting pandas (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/67/a7/12261a51ac2e7be4c698ca27cbe364ca5f16d64999456ee47ea8c7b44417/pandas-0.23.4-cp37-cp37m-manylinux1_x86_64.whl (8.8MB)
+Collecting pandas-datareader (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/cc/5c/ea5b6dcfd0f55c5fb1e37fb45335ec01cceca199b8a79339137f5ed269e0/pandas_datareader-0.7.0-py2.py3-none-any.whl (111kB)
+Collecting matplotlib (from -r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/1e/92/923b86132669ce39b7b0096a402cc78a5b70f22423f8b59bbd7bb7ff9403/matplotlib-3.0.0-cp37-cp37m-manylinux1_x86_64.whl (12.8MB)
+Collecting pillow (from -r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/62/8c/230204b8e968f6db00c765624f51cfd1ecb6aea57b25ba00b240ee3fb0bd/Pillow-5.3.0-cp37-cp37m-manylinux1_x86_64.whl (2.0MB)
+Collecting requests (from -r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/65/47/7e02164a2a3db50ed6d8a6ab1d6d60b69c4c3fdf57a284257925dfc12bda/requests-2.19.1-py2.py3-none-any.whl (91kB)
+Collecting h5py (from -r requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/4f/3f/724834613239667a92d3b8b6b8fdef1c93d6f57d008cacc46e6b9ebdc486/h5py-2.8.0-cp37-cp37m-manylinux1_x86_64.whl (2.8MB)
+Collecting keras (from -r requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/5e/10/aa32dad071ce52b5502266b5c659451cfd6ffcbf14e6c8c4f16c0ff5aaab/Keras-2.2.4-py2.py3-none-any.whl (312kB)
+Collecting scikit-learn (from sklearn->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/56/7d/0737aed3e157fb90a1eaecb1cbfa5742fa4206fb305c8f157b666b71da14/scikit_learn-0.20.0-cp37-cp37m-manylinux1_x86_64.whl (5.3MB)
+Collecting pytz>=2011k (from pandas->-r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/30/4e/27c34b62430286c6d59177a0842ed90dc789ce5d1ed740887653b898779a/pytz-2018.5-py2.py3-none-any.whl (510kB)
+Collecting python-dateutil>=2.5.0 (from pandas->-r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/cf/f5/af2b09c957ace60dcfac112b669c45c8c97e32f94aa8b56da4c6d1682825/python_dateutil-2.7.3-py2.py3-none-any.whl (211kB)
+Collecting numpy>=1.9.0 (from pandas->-r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/98/44/94cc2e139b611b16458384ff3b9c87f217144b5915b0a9798c07a7295437/numpy-1.15.2-cp37-cp37m-manylinux1_x86_64.whl (13.8MB)
+Collecting wrapt (from pandas-datareader->-r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/a0/47/66897906448185fcb77fc3c2b1bc20ed0ecca81a0f2f88eda3fc5a34fc3d/wrapt-1.10.11.tar.gz
+Collecting lxml (from pandas-datareader->-r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/7a/6b/a3d2d3c3075617edcbfc272d79281e812b1a94dab37923b1d06fdfe2e906/lxml-4.2.5-cp37-cp37m-manylinux1_x86_64.whl (5.8MB)
+Collecting pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 (from matplotlib->-r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/2b/4a/f06b45ab9690d4c37641ec776f7ad691974f4cf6943a73267475b05cbfca/pyparsing-2.2.2-py2.py3-none-any.whl (57kB)
+Collecting cycler>=0.10 (from matplotlib->-r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/f7/d2/e07d3ebb2bd7af696440ce7e754c59dd546ffe1bbe732c8ab68b9c834e61/cycler-0.10.0-py2.py3-none-any.whl
+Collecting kiwisolver>=1.0.1 (from matplotlib->-r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/5c/7e/d6cae2f241ba474a2665f24b480bf4e247036d63939dda2bbc4d2ee5069d/kiwisolver-1.0.1-cp37-cp37m-manylinux1_x86_64.whl (89kB)
+Collecting certifi>=2017.4.17 (from requests->-r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/df/f7/04fee6ac349e915b82171f8e23cee63644d83663b34c539f7a09aed18f9e/certifi-2018.8.24-py2.py3-none-any.whl (147kB)
+Collecting chardet<3.1.0,>=3.0.2 (from requests->-r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl (133kB)
+Collecting idna<2.8,>=2.5 (from requests->-r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/4b/2a/0276479a4b3caeb8a8c1af2f8e4355746a97fab05a372e4a2c6a6b876165/idna-2.7-py2.py3-none-any.whl (58kB)
+Collecting urllib3<1.24,>=1.21.1 (from requests->-r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/bd/c9/6fdd990019071a4a32a5e7cb78a1d92c53851ef4f56f62a3486e6a7d8ffb/urllib3-1.23-py2.py3-none-any.whl (133kB)
+Collecting six (from h5py->-r requirements.txt (line 7))
+  Downloading https://files.pythonhosted.org/packages/67/4b/141a581104b1f6397bfa78ac9d43d8ad29a7ca43ea90a2d863fe3056e86a/six-1.11.0-py2.py3-none-any.whl
+Collecting keras-applications>=1.0.6 (from keras->-r requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/3f/c4/2ff40221029f7098d58f8d7fb99b97e8100f3293f9856f0fb5834bef100b/Keras_Applications-1.0.6-py2.py3-none-any.whl (44kB)
+Collecting scipy>=0.14 (from keras->-r requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/40/de/0c22c6754370ba6b1fa8e53bd6e514d4a41a181125d405a501c215cbdbd6/scipy-1.1.0-cp37-cp37m-manylinux1_x86_64.whl (31.2MB)
+Collecting pyyaml (from keras->-r requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz (270kB)
+Collecting keras-preprocessing>=1.0.5 (from keras->-r requirements.txt (line 8))
+  Downloading https://files.pythonhosted.org/packages/fc/94/74e0fa783d3fc07e41715973435dd051ca89c550881b3454233c39c73e69/Keras_Preprocessing-1.0.5-py2.py3-none-any.whl
+Requirement already satisfied: setuptools in /usr/local/lib/python3.7/site-packages (from kiwisolver>=1.0.1->matplotlib->-r requirements.txt (line 4)) (40.4.3)
+Building wheels for collected packages: sklearn, wrapt, pyyaml
+  Running setup.py bdist_wheel for sklearn: started
+  Running setup.py bdist_wheel for sklearn: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/76/03/bb/589d421d27431bcd2c6da284d5f2286c8e3b2ea3cf1594c074
+  Running setup.py bdist_wheel for wrapt: started
+  Running setup.py bdist_wheel for wrapt: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/48/5d/04/22361a593e70d23b1f7746d932802efe1f0e523376a74f321e
+  Running setup.py bdist_wheel for pyyaml: started
+  Running setup.py bdist_wheel for pyyaml: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/ad/da/0c/74eb680767247273e2cf2723482cb9c924fe70af57c334513f
+Successfully built sklearn wrapt pyyaml
+Installing collected packages: numpy, scipy, scikit-learn, sklearn, pytz, six, python-dateutil, pandas, certifi, chardet, idna, urllib3, requests, wrapt, lxml, pandas-datareader, pyparsing, cycler, kiwisolver, matplotlib, pillow, h5py, keras-applications, pyyaml, keras-preprocessing, keras
+Successfully installed certifi-2018.8.24 chardet-3.0.4 cycler-0.10.0 h5py-2.8.0 idna-2.7 keras-2.2.4 keras-applications-1.0.6 keras-preprocessing-1.0.5 kiwisolver-1.0.1 lxml-4.2.5 matplotlib-3.0.0 numpy-1.15.2 pandas-0.23.4 pandas-datareader-0.7.0 pillow-5.3.0 pyparsing-2.2.2 python-dateutil-2.7.3 pytz-2018.5 pyyaml-3.13 requests-2.19.1 scikit-learn-0.20.0 scipy-1.1.0 six-1.11.0 sklearn-0.0 urllib3-1.23 wrapt-1.10.11
+Removing intermediate container 0df44bcb4b2e
+ ---> 745cfd6e86a6
+Step 5/5 : CMD python hello-world.py
+ ---> Running in 06cbe3ae935c
+Removing intermediate container 06cbe3ae935c
+ ---> 4f924bb01494
+Successfully built 4f924bb01494
+SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+
+C:\ZevereNLP>docker run --rm 4f924bb01494
+Hello, World!

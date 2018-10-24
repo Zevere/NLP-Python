@@ -86,9 +86,25 @@ def vectorize_stories(data):
             pad_sequences(queries, maxlen=query_maxlen),
             np.array(answers))
 
-
+# ----------- PATHS ---------------------
+filepath = os.path.dirname(__file__)
 try:
-    path = 'C:/Users/310267647/.keras/datasets/babi-tasks-v1-2.tar10.gz'
+  filepath = os.environ["PROJECT_DIR"] 
+except KeyError:
+  pass
+
+print("Current Directory: " + filepath)
+# Load the model, if it exists, load vocab too
+modelpath = os.path.join(filepath,"chatbot.h5")
+print("Model Path: " + modelpath)
+model = load_model(modelpath)
+
+pickle_vocabpath = os.path.join(filepath,"vocab.pkl") 
+print("Pickle  Vocab  Path: " + pickle_vocabpath)
+vocab = pickle.load( open(pickle_vocabpath, "rb" ))
+try:
+    path =  os.path.join(filepath, 'babi-tasks-v1-2.tar10.gz')
+    print("Babi  Tasks  Path: " +path)
 except:
    # print('Error downloading dataset, please download it manually:\n'
     #      '$ wget http://www.thespermwhale.com/jaseweston/babi/babi-tasks-v1-2.tar8.gz\n'
@@ -127,13 +143,6 @@ word_idx = dict((c, i + 1) for i, c in enumerate(vocab))
 inputs_train, queries_train, answers_train = vectorize_stories(train_stories)
 inputs_test, queries_test, answers_test = vectorize_stories(test_stories)
 
-
-# Load the model, if it exists, load vocab too
-save_path = "C:/Users/310267647/.keras/datasets/"
-model = load_model(os.path.join(save_path,"chatbot.h5"))
-vocab = pickle.load( open( os.path.join(save_path,"vocab.pkl"), "rb" ) )
-
-
 pred = model.predict([inputs_test, queries_test])
 # See what the predictions look like, they are just probabilities of each class.
 #print(pred)
@@ -170,4 +179,10 @@ def home():
 def render_static():
     return render_template("NLP_API_CALL.html", title = '')
     #return render_template('%NLP_API_CALL.html' % page_name)
-app.run()
+
+app_port = 5000
+try:
+    app_port = os.environ["PORT"]
+except KeyError:
+    pass
+app.run(port=app_port, host='0.0.0.0')
