@@ -1,4 +1,4 @@
-FROM    python:3
+FROM    tensorflow/tansorflow
 ENV     PROJECT_DIR="/app"
 WORKDIR /app
 COPY    . .
