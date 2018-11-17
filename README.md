@@ -1,11 +1,31 @@
-# NLP Engine for Zevere
+
+#NLP
+
+## NLP Engine for Zevere
 
 A NLP(Natural Language Processing) engine and web API for Zevere
+[![Docker Build]](https://travis-ci.org/Zevere/NLP-Python/builds/451211526)
 
-## Credit to: This NLP code are written based on the code given by Professor Jeff Heaton, Ph.D., is a data scientist, an adjunct instructor for the Sever Institute at Washington University, and the author of several books about artificial intelligence. 
 
-## Getting Started
+## Table of Contents
+- [NLP](#NLP)
+    - [A NLP(Natural Language Processing) engine and web API for Zevere.](# NLP Engine for Zevere)
+    - [Table of Contents](#table-of-contents)
+    - [Overview](#overview)
+    - [Development](#development)
+        - [Install Dependencies](#install-dependencies)
+        - [Running in Development](#running-in-development)
+        - [To test the NLP](#to-test-the-NLP)
 
+
+## overview
+
+This NLP code are written based on the code given by Professor Jeff Heaton, Ph.D., is a data scientist, an adjunct instructor for the Sever Institute at Washington University, and the author of several books about artificial intelligence. 
+
+##Development
+This project makes use of experimental Python code. It is recommended you use an IDE or editor that supports Python.
+
+##Install Dependencies
 The following packages are needed to be installed:
 
 conda install scipy
@@ -28,21 +48,10 @@ pip install tensorflow==1.2.1
 pip install keras==2.0.6
 
 
-## Confirm the following files are available in assigned path
-babi-tasks-v1-2.tar10.gz
+## Running in Development 
+Use the following docker run command to run the NLP
 
-chatbot.h5
-
-vocab.pkl
-
-
-## Change the file path according to your assigned path in nlp.py file
-path = 'C:/Users/310267647/.keras/datasets/babi-tasks-v1-2.tar10.gz'  #change the path
-
-save_path = "C:/Users/310267647/.keras/datasets/" #change the path
-
-## Run the nlp.py file from Anaconda prompt to local server
-(base) C:\>python \NLPBot\nlp.py    #run from your assigned path
+docker run --rm -it -p 5000:5000/tcp zevere/nlp:latest
 
 ## To test the NLP outcome run NLP_API_CALL.html file from any web application server and ask question.
 There are only 3 question available now.

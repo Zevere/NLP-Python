@@ -6,7 +6,7 @@ $.config.fatal = true
 
 
 try {
-    require('./telegram.integration.test')
+    console.warn("ToDo")
 } catch (e) {
     console.error(e)
     process.exit(1)
