@@ -13,21 +13,6 @@
 13 Task for today is tasktoday.
 14 Task for tomorrow is tasktomorrow.
 15 What is task for today? 	tasktoday	13
-1 Task for today is tasktoday.
-2 Task for yesterday was taskyesterday.
-3 What was task for yesterday? 	taskyesterday	2
-4 Task for tomorrow is tasktomorrow.
-5 Task for today is tasktoday.
-6 What was task for yesterday? 	taskyesterday	2
-7 Task for yesterday was taskyesterday.
-8 task for tomorrow is tasktomorrow.
-9 What is task for tomorrow? 	tasktomorrow	8
-10 Task for yesterday was taskyesterday.
-11 Task for today is tasktoday.
-12 What is task for tomorrow? 	tasktomorrow	8
-13 Task for today is tasktoday.
-14 Task for tomorrow is tasktomorrow.
-15 What is task for yesterday? 	taskyesterday	7
 1 task today is tasktoday.
 2 task for yesterday was taskyesterday.
 3 what is task for today? 	tasktoday	1
@@ -73,18 +58,3 @@
 13 Login is login.
 14 Create task is createtask.
 15 Can you create task? 	createtask	14
-1 delete task is deletetask.
-2 create task is createtask.
-3 delete task. 	deletetask	1
-4 login is login.
-5 create task is createtask.
-6 create task. 	createtask	5
-7 delete task is deletetask.
-8 login is login.
-9 can you Login? 	login	8
-10 login is login.
-11 delete task is deletetask.
-12 can you delete task? 	deletetask	11
-13 login is login.
-14 create task is createtask.
-15 can you create task? 	createtask	14
