@@ -5,5 +5,5 @@ matplotlib
 pillow
 requests
 h5py
-keras
+keras==2.0.6
 flask

@@ -1,8 +1,3 @@
-print('~~~~~~~~~~~~~~~~~~ before tf import')
-
-import tensorflow as tf
-
-print('~~~~~~~~~~~~~~~~~~ tf import ok')
 
 from keras.models import Sequential, Model
 from keras.layers.embeddings import Embedding
@@ -24,8 +19,6 @@ import flask
 from flask import request
 from flask import render_template_string, render_template
 from flask import Flask, jsonify
-
-print('~~~~~~~~~~~~~~~~~~ all imports good!')
 
 app = Flask(__name__, static_url_path='')
 app.config["DEBUG"] = True
