@@ -171,7 +171,7 @@ def home():
     adhoc_train, adhoc_query, adhoc_answer = vectorize_stories([adhoc_stories])
     pred = model.predict([adhoc_train, adhoc_query])
     pred = np.argmax(pred,axis=1)
-    answer = "Answer: {}({})".format(vocab[pred[0]-1],pred)
+    answer = "{}".format(vocab[pred[0]-1])
     return jsonify({'tasks': answer}) 
 
 	
